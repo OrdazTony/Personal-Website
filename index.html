@@ -34,7 +34,7 @@
       <main id="top">
         <section class="hero section-grid" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot"></span> Computer science · Software development</p>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Computer Science · Software Development</p>
             <h1 id="hero-title">&ldquo;Per aspera<br /><em>ad astra.</em>&rdquo;</h1>
             <p class="hero-motto">Through hardships to the stars.</p>
             <p class="hero-intro">Hi, I’m Anthony, a Computer Science student at Florida International University. I enjoy taking an idea, figuring out how it should work, and turning it into something people can actually use.</p>
@@ -87,7 +87,7 @@
         </section>
 
         <section class="journal section-grid" id="journal" aria-labelledby="journal-title">
-          <div class="section-label"><span>03</span><span>Vlog / journal</span></div>
+          <div class="section-label"><span>03</span><span>Vlog / Journal</span></div>
           <div class="journal-content">
             <div class="section-heading-row">
               <h2 id="journal-title">Notes from<br /><em>the process.</em></h2>
@@ -103,13 +103,34 @@
             <p class="eyebrow"><span class="eyebrow-dot"></span> Let’s build something useful.</p>
             <h2 id="contact-title">Let’s talk.</h2>
             <p class="contact-copy">Need a website, have a project you want to bring to life, or looking for someone to join your team? Reach out. I’m always open to discussing new projects, freelance work, and software development opportunities.</p>
-            <div class="contact-actions">
-              <div class="contact-portrait" aria-hidden="true">
-                <img src="/assets/IMG_7917-cropped.PNG" alt="" />
+            <form class="contact-form" action="https://formsubmit.co/ordaz.tony.24@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New portfolio contact" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <div class="contact-form-row">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required />
               </div>
-              <a class="button button-light" href="https://www.linkedin.com/in/anthonyordaz/" target="_blank" rel="noreferrer">Contact me <span aria-hidden="true">↗</span></a>
-              <a class="button button-outline-light" href="https://www.linkedin.com/in/anthonyordaz/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-            </div>
+              <div class="contact-form-row">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="contact-form-row">
+                <label for="contact-subject">Subject</label>
+                <input id="contact-subject" name="subject" type="text" required />
+              </div>
+              <div class="contact-form-row">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="contact-actions">
+                <div class="contact-portrait" aria-hidden="true">
+                  <img src="/assets/IMG_7917-cropped.PNG" alt="" />
+                </div>
+                <button class="button button-light" type="submit">Send email <span aria-hidden="true">↗</span></button>
+                <a class="button button-outline-light" href="https://www.linkedin.com/in/anthonyordaz/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              </div>
+            </form>
           </div>
           <div class="contact-mark" aria-hidden="true">AO<span>.</span></div>
         </section>
@@ -117,7 +138,7 @@
 
       <footer class="site-footer">
         <span>© 2026 Anthony Ordaz</span>
-        <span>Made with intention <i aria-hidden="true">✳</i></span>
+        <span>Made with intention</span>
         <a href="#top">Back to top ↑</a>
       </footer>
     </div>

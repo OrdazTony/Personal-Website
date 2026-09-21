@@ -158,7 +158,7 @@ h2 { margin-bottom: 32px; font-size: clamp(3.2rem, 6vw, 5.8rem); }
 .github-card .project-meta { margin-top: 0; color: var(--muted); }
 .github-card:nth-child(odd) .project-meta, .github-card:nth-child(odd) .project-meta span:last-child { color: rgba(242,245,237,.82); }
 .project-preview { position: relative; aspect-ratio: 16 / 9; margin: 20px 0 4px; overflow: hidden; background: var(--ink); box-shadow: 10px 10px 0 rgba(31,41,39,.14); }
-.project-preview iframe { display: block; width: 108.7%; height: 108.7%; border: 0; background: var(--paper); transform: scale(.92); transform-origin: top left; }
+.project-preview iframe { display: block; width: 200%; height: 200%; border: 0; background: var(--paper); transform: scale(.5); transform-origin: top left; }
 .project-preview-link { position: absolute; right: 10px; bottom: 10px; padding: 7px 9px; color: var(--paper); background: var(--ink); font-size: .62rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .project-preview-link:hover { color: var(--sage); }
 .github-card h3 { margin-top: 18px; }
@@ -189,8 +189,14 @@ h2 { margin-bottom: 32px; font-size: clamp(3.2rem, 6vw, 5.8rem); }
 .contact-content .eyebrow { color: rgba(243,240,233,.75); }
 .contact h2 { margin-bottom: 28px; font-size: clamp(3.5rem, 7vw, 6.5rem); }
 .contact h2 em { color: var(--coral-soft); }
-.contact-copy { max-width: 350px; margin-bottom: 30px; color: rgba(243,240,233,.82); }
-.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.contact-copy { max-width: 520px; margin-bottom: 30px; color: rgba(243,240,233,.82); }
+.contact-form { max-width: 620px; }
+.contact-form-row { display: grid; gap: 7px; margin-bottom: 17px; }
+.contact-form-row label { color: rgba(243,240,233,.78); font-size: .67rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.contact-form-row input, .contact-form-row textarea { width: 100%; border: 1px solid rgba(243,240,233,.42); border-radius: 0; padding: 11px 13px; color: var(--paper); background: rgba(24,52,43,.44); font: .9rem var(--sans); }
+.contact-form-row textarea { min-height: 130px; resize: vertical; }
+.contact-form-row input:focus, .contact-form-row textarea:focus { outline: 2px solid var(--coral-soft); outline-offset: 2px; border-color: var(--coral-soft); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 24px; }
 .button-outline-light { border: 1px solid rgba(243,240,233,.6); color: var(--paper); background: transparent; }
 .button-outline-light:hover { border-color: var(--paper-green); color: var(--paper-green); background: rgba(199,221,200,.08); }
 .contact-portrait { position: relative; align-self: flex-end; width: clamp(84px, 9vw, 108px); margin-right: 8px; aspect-ratio: 1; overflow: hidden; border: 2px solid rgba(243,240,233,.72); border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
@@ -227,10 +233,11 @@ h2 { margin-bottom: 32px; font-size: clamp(3.2rem, 6vw, 5.8rem); }
   .project-list { width: auto; margin-left: 0; }
   .about-details { margin-top: 30px; }
   .section-heading-row { display: block; }
-  .work-laptop-stage { width: min(230px, 72vw); margin: 8px 0 22px auto; }
+  .work-laptop-stage { width: min(300px, 90vw); margin: 0 auto 10px; }
   .section-heading-row > p { margin-bottom: 35px; }
   .project-card { margin-bottom: 36px; }
   .github-card { min-height: 260px; margin-bottom: 18px; }
+  .github-description { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
   .project-placeholder { min-height: 260px; margin-bottom: 18px; }
   .project-preview { margin-top: 18px; }
   .journal-entry { grid-template-columns: 1fr; gap: 10px; padding: 18px; }

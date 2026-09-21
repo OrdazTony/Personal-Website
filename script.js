@@ -6,8 +6,8 @@ const dialogClose = document.querySelector('#dialog-close');
 
 const fallbackProjects = [
   {
-    name: 'TrainRec',
-    type: 'Product development',
+    name: 'TrainRec - Personal Fitness Tracker',
+    type: 'Product Development',
     description: 'TrainRec started from a simple problem: at-home workouts can become difficult to structure and track consistently. I wanted to build something that made the process more organized without making it more complicated. Developing it pushed me to think beyond features and focus on the details that make software feel understandable and complete.',
     html_url: 'https://github.com/OrdazTony',
     site_url: 'https://trainrec.dev',
@@ -17,21 +17,21 @@ const fallbackProjects = [
     featured: true,
   },
   {
-    name: 'Pill Identifier',
-    type: 'Healthcare technology',
+    name: 'Pill Identifier - Mobile App',
+    type: 'Healthcare Technology',
     description: 'The Pill Identifier application helps someone narrow down the identity of an unknown medication using the information they can physically see on the pill. It challenged me to make search, filtering, and results feel simple while keeping the information clear.',
     html_url: 'https://github.com/OrdazTony',
     language: 'JavaScript',
-    topics: ['Search', 'User-focused development'],
+    topics: ['Search', 'User-Focused Development'],
     link_label: 'View the project',
   },
   {
-    name: 'JCBlinds Website',
-    type: 'Client project',
+    name: 'JCBlinds - E-Commerce Website',
+    type: 'Client Project',
     description: 'The JCBlinds website gave me the opportunity to build for a real business. The goal was to create a clean, professional web presence that made the company’s services easier to understand and gave potential customers a straightforward way to get in contact.',
     html_url: 'https://github.com/OrdazTony',
     language: 'HTML / CSS',
-    topics: ['Web development', 'Responsive design'],
+    topics: ['Web Development', 'Responsive Design'],
     link_label: 'Visit JCBlinds',
   },
 ];
@@ -122,4 +122,5 @@ dialogClose.addEventListener('click', () => journalDialog.close());
 journalDialog.addEventListener('click', (event) => {
   if (event.target === journalDialog) journalDialog.close();
 });
+
 renderJournal();
