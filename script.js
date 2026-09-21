@@ -38,25 +38,25 @@ const fallbackProjects = [
 
 const journalEntries = [
   {
-    date: 'Sep 2026',
+    date: 'Mar 2026',
     category: 'Building',
-    title: 'What TrainRec taught me about actually finishing',
-    excerpt: 'The last part of the work matters just as much as the first part.',
-    body: '<p>TrainRec started as a way to bring more structure to at-home workouts. At first, most of my attention went toward the main functionality: what the application needed to do and how I could make it work.</p><p>The longer I worked on it, the more I realized that getting the main feature working is only part of finishing a product. There are dozens of smaller decisions between a good idea and something another person can comfortably use.</p><p>Clear navigation, sensible defaults, useful feedback, error handling, responsive layouts, and the small interactions between screens all matter.</p><p>I’m learning to treat that last ten percent as part of the actual build instead of something I can clean up at the end.</p>',
+    title: 'Stepping up',
+    excerpt: 'Leadership can mean helping everyone stay focused and taking responsibility when something needs to change.',
+    body: '<p>I’m working on TrainRec with my team, and as we keep building it, I’m realizing that the project is teaching me much more than just programming. I’m still learning as I go, but there are moments when the project needs more direction, clearer decisions, and someone willing to take ownership of what happens next.</p><p>I’m learning that collaboration does not always mean waiting for everyone to agree. Sometimes it means listening to the team, understanding what needs to get done, and being willing to step forward when the project starts to lose momentum. I’m becoming more comfortable giving direction, organizing work, and making decisions when they are needed. I’m starting to understand that leadership can be as simple as helping everyone stay focused on the goal and being willing to take responsibility when something needs to change.</p>',
   },
   {
     date: 'Aug 2026',
-    category: 'Learning',
-    title: 'I learn faster when I have something real to build',
-    excerpt: 'Building forces me to ask better questions and learn what I really understand.',
-    body: '<p>Tutorials, documentation, and classes give me a starting point, but I usually understand something much better once I have to use it in an actual project.</p><p>Building forces me to ask better questions. I find out quickly what I really understand, what I only thought I understood, and what I still need to learn.</p><p>That is part of why I started documenting these projects. I want to be able to look back at what I built, the decisions I made, the mistakes I ran into, and how my approach changes over time.</p>',
+    category: 'Purpose',
+    title: 'Building things that can actually help someone',
+    excerpt: 'Software can be useful, accessible, and genuinely helpful to the person using it.',
+    body: '<p>I’m working on my Pill Identifier app, and it is changing the way I think about the kind of software I want to build. Technology is everywhere, but I don’t think everything we create needs to become more virtual noise. I’m becoming much more interested in building tools that solve a real problem for someone.</p><p>That matters even more to me when technology can give someone greater independence. People with disabilities often rely on technological tools to access information, complete everyday tasks, or navigate situations that others may take for granted. As I work on this project, I’m realizing that software can be more than something impressive to look at. It can be useful, accessible, and genuinely helpful to the person using it.</p>',
   },
   {
-    date: 'Jul 2026',
+    date: 'Nov 2025',
     category: 'Perspective',
-    title: 'Good software should make the next step obvious',
-    excerpt: 'The more I build, the more I notice how much clarity matters.',
-    body: '<p>One thing I keep noticing while building is that adding more features does not automatically make a product better. Sometimes the harder part is deciding what does not need to be there.</p><p>I try to look at a screen and ask one question: if I had never seen this before, would I know what to do next? The more I build, the more I realize that good software is not just about what it can do. It is also about how easily someone can understand it.</p>',
+    title: 'Staying true to myself while I figure it out',
+    excerpt: 'Progress looks different for everyone, and continuing to move forward matters.',
+    body: '<p>School is not always easy, and there are plenty of moments when I catch myself comparing my path to someone else’s or feeling like I should be further ahead. I’m learning that progress looks different for everyone, and right now I’m trying to focus more on continuing to move forward without losing sight of who I am.</p><p>I want to keep learning, building, drawing, working, and creating in a way that still feels like me. The difficult parts of my studies are teaching me persistence, but they are also teaching me not to let pressure change who I am or what I value. My path may not always be the most direct one, but I’m continuing to show up, adjust, and push through the harder parts.</p>',
   },
 ];
 
