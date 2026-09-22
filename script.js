@@ -98,10 +98,21 @@ const renderProjects = (projects) => {
 // Add future public repositories to this curated list when they are ready to share.
 renderProjects(fallbackProjects);
 
+const getJournalExcerpt = (entry, maxLength = 190) => {
+  const body = document.createElement('div');
+  body.innerHTML = entry.body;
+  const text = body.textContent.replace(/\s+/g, ' ').trim();
+
+  if (text.length <= maxLength) return text;
+
+  const shortened = text.slice(0, maxLength).replace(/\s+\S*$/, '');
+  return `${shortened}...`;
+};
+
 const renderJournal = () => {
   journalList.innerHTML = journalEntries.map((entry, index) => `<article class="journal-entry">
     <div class="journal-date">${escapeHtml(entry.date)}<br />${escapeHtml(entry.category)}</div>
-    <div><h3>${escapeHtml(entry.title)}</h3><p>${escapeHtml(entry.excerpt)}</p></div>
+    <div><h3>${escapeHtml(entry.title)}</h3><p>${escapeHtml(getJournalExcerpt(entry))}</p></div>
     <button class="journal-read" type="button" data-entry="${index}">Read note ↗</button>
   </article>`).join('');
 };
