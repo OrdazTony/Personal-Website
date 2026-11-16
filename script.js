@@ -67,20 +67,30 @@ const updateHeader = () => {
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
-const setMenu = (open) => {
+const navLinks = [...siteNav.querySelectorAll('a')];
+const isMenuOpen = () => menuToggle.getAttribute('aria-expanded') === 'true';
+
+// The nav comes before the toggle in the page, so opening the menu moves focus into it.
+const setMenu = (open, { returnFocus = false } = {}) => {
   menuToggle.setAttribute('aria-expanded', String(open));
   siteNav.classList.toggle('is-open', open);
+  if (open) navLinks[0].focus();
+  if (!open && returnFocus) menuToggle.focus();
 };
 
-menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+menuToggle.addEventListener('click', () => setMenu(!isMenuOpen()));
 siteNav.addEventListener('click', (event) => {
   if (event.target.closest('a')) setMenu(false);
 });
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') setMenu(false);
+  if (event.key === 'Escape' && isMenuOpen()) setMenu(false, { returnFocus: true });
 });
-
-const navLinks = [...siteNav.querySelectorAll('a')];
+document.addEventListener('click', (event) => {
+  if (isMenuOpen() && !header.contains(event.target)) setMenu(false);
+});
+header.addEventListener('focusout', (event) => {
+  if (isMenuOpen() && event.relatedTarget && !header.contains(event.relatedTarget)) setMenu(false);
+});
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     const link = navLinks.find((navLink) => navLink.hash === `#${entry.target.id}`);
@@ -89,6 +99,36 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-45% 0px -54% 0px' });
 
 document.querySelectorAll('main section[id]').forEach((section) => sectionObserver.observe(section));
+
+// The pixel-art scenes load when they come near the screen and play only while visible.
+// Visitors who ask for reduced motion see a still until they press play.
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.querySelectorAll('.scene').forEach((scene) => {
+  const video = scene.querySelector('video');
+  const toggle = scene.querySelector('.scene-toggle');
+  let paused = reduceMotion;
+  let visible = false;
+
+  const sync = () => {
+    toggle.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
+    toggle.classList.toggle('is-paused', paused);
+    if (visible && !paused) video.play().catch(() => {});
+    else video.pause();
+  };
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible && !video.poster) video.poster = video.dataset.poster;
+    sync();
+  }, { rootMargin: '200px 0px' }).observe(scene);
+
+  toggle.addEventListener('click', () => {
+    paused = !paused;
+    sync();
+  });
+  sync();
+});
 
 const renderPreview = (project) => {
   const { preview } = project;
@@ -159,3 +199,31 @@ journalDialog.addEventListener('click', (event) => {
 });
 
 renderJournal();
+
+// FormSubmit sends people back here with ?sent=1 after a message goes through.
+const contactForm = document.querySelector('#contact-form');
+const contactSubmit = document.querySelector('#contact-submit');
+const formStatus = document.querySelector('#form-status');
+
+document.querySelector('#contact-next').value = `${window.location.origin}${window.location.pathname}?sent=1#contact`;
+
+const resetSubmit = () => {
+  contactSubmit.disabled = false;
+  contactSubmit.textContent = 'Send message';
+};
+
+contactForm.addEventListener('submit', () => {
+  contactSubmit.disabled = true;
+  contactSubmit.textContent = 'Sending…';
+});
+// Coming back with the browser's back button restores the page as it was left.
+window.addEventListener('pageshow', resetSubmit);
+
+const pageParams = new URLSearchParams(window.location.search);
+if (pageParams.has('sent')) {
+  formStatus.hidden = false;
+  window.history.replaceState(null, '', `${window.location.pathname}#contact`);
+}
+
+// Projects and notes are added above after the browser has already jumped to a #link, so jump again.
+if (window.location.hash) document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ behavior: 'instant' });

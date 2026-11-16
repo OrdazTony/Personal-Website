@@ -28,6 +28,9 @@ h1, h2, h3, p, figure { margin: 0; }
 h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
 h2 { font-size: clamp(2.5rem, 5.4vw, 4.25rem); line-height: 1.02; }
 :focus-visible { outline: 2px solid var(--leaf); outline-offset: 4px; }
+.skip-link { position: absolute; top: -100px; left: 16px; z-index: 20; padding: 10px 16px; color: var(--ink); background: var(--paper); font-weight: 600; }
+.skip-link:focus { top: 12px; }
+main:focus { outline: none; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .container { width: 100%; max-width: calc(1200px + 2 * var(--gutter)); margin: 0 auto; padding-right: var(--gutter); padding-left: var(--gutter); }
 
@@ -47,6 +50,8 @@ h2 { font-size: clamp(2.5rem, 5.4vw, 4.25rem); line-height: 1.02; }
 .site-nav a.is-current { border-color: var(--mint); color: var(--paper); }
 .header-end { display: flex; align-items: center; gap: 10px; }
 .social-links { display: flex; gap: 8px; }
+.social-link, .menu-toggle, .scene-toggle { position: relative; }
+.social-link::after, .menu-toggle::after, .scene-toggle::after { position: absolute; inset: -3px; content: ''; }
 .social-link { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(232, 240, 230, 0.35); border-radius: 50%; transition: color 160ms ease, background 160ms ease, border-color 160ms ease; }
 .social-link:hover { border-color: var(--paper); color: var(--forest-deep); background: var(--paper); }
 .social-link svg { width: 17px; height: 17px; fill: currentColor; }
@@ -71,6 +76,10 @@ h1 em { color: var(--mint); font-style: italic; }
 .scene-art { position: absolute; z-index: -2; inset: 0; width: 100%; max-width: none; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .scene::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(to top, rgba(11, 33, 25, 0.92) 0%, rgba(11, 33, 25, 0.6) 32%, rgba(11, 33, 25, 0) 68%); content: ''; }
 .scene-caption { padding-bottom: clamp(36px, 5vw, 64px); }
+.scene-toggle { position: absolute; top: 16px; right: var(--gutter); display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 1px solid rgba(232, 240, 230, 0.45); border-radius: 50%; color: var(--paper); background: rgba(11, 33, 25, 0.55); cursor: pointer; transition: background 160ms ease, border-color 160ms ease; }
+.scene-toggle:hover { border-color: var(--paper); background: rgba(11, 33, 25, 0.8); }
+.scene-toggle::before { width: 10px; height: 12px; border-right: 3px solid currentColor; border-left: 3px solid currentColor; content: ''; }
+.scene-toggle.is-paused::before { width: 0; height: 0; margin-left: 3px; border-top: 7px solid transparent; border-right: 0; border-bottom: 7px solid transparent; border-left: 11px solid currentColor; }
 .scene h2 { max-width: 13ch; text-shadow: 0 2px 24px rgba(11, 33, 25, 0.45); }
 .scene-note { max-width: 30rem; margin-top: 18px; color: rgba(232, 240, 230, 0.86); }
 
@@ -122,7 +131,7 @@ h1 em { color: var(--mint); font-style: italic; }
 .dialog-close { position: absolute; top: 12px; right: 12px; display: grid; width: 44px; height: 44px; place-items: center; border: 0; border-radius: 50%; color: var(--ink); background: transparent; font-size: 1.75rem; line-height: 1; cursor: pointer; transition: background 160ms ease; }
 .dialog-close:hover { background: var(--paper-deep); }
 
-.contact { padding-top: var(--section-space); color: var(--paper); background: var(--forest); }
+.contact { padding-top: var(--section-space); color: var(--paper); background: var(--forest); color-scheme: dark; }
 .contact-inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
 .contact-portrait { width: 72px; height: 72px; margin-bottom: 28px; border: 2px solid rgba(232, 240, 230, 0.7); border-radius: 50%; object-fit: cover; object-position: center 30%; }
 .contact h2 { font-size: clamp(3rem, 6.4vw, 5.25rem); }
@@ -138,6 +147,9 @@ h1 em { color: var(--mint); font-style: italic; }
 .field input:hover, .field textarea:hover { border-color: rgba(232, 240, 230, 0.5); }
 .field input:focus, .field textarea:focus { border-color: var(--mint); outline: none; box-shadow: 0 0 0 3px rgba(139, 199, 165, 0.28); }
 .contact-form .button { margin-top: 4px; }
+.contact-form .button:disabled { cursor: progress; opacity: 0.7; }
+.honeypot { display: none; }
+.form-status { padding: 14px 16px; border: 1px solid var(--mint); color: var(--paper); background: rgba(139, 199, 165, 0.12); font-weight: 500; }
 .contact :focus-visible { outline-color: var(--mint); }
 
 .site-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 32px; margin-top: var(--section-space); padding-top: 24px; padding-bottom: 32px; color: rgba(232, 240, 230, 0.62); font-size: 0.875rem; }
