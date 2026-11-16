@@ -13,7 +13,7 @@ const projects = [
     type: 'Personal fitness tracker',
     description: 'TrainRec started from a simple problem: at-home workouts can become difficult to structure and track consistently. I wanted to build something that made the process more organized without making it more complicated. Developing it pushed me to think beyond features and focus on the details that make software feel understandable and complete.',
     tags: ['React', 'Node.js', 'Computer vision'],
-    preview: { site: 'https://trainrec.dev' },
+    preview: { image: '/assets/trainrec-dashboard.jpg', width: 1600, height: 799, alt: 'The TrainRec dashboard, tracking calories eaten and burned, workouts, and mood for the day', url: 'https://trainrec.dev' },
     links: [
       { label: 'Open TrainRec', url: 'https://trainrec.dev' },
       { label: 'Source on GitHub', url: 'https://github.com/OrdazTony/TrainRec1' },
@@ -24,7 +24,7 @@ const projects = [
     type: 'Software and curriculum development',
     description: 'DVPSTA is a Florida security training school that teaches state licensing courses live online in English and Spanish. I redesigned the curriculum for its Class D and Class G license courses: the slide decks, narrated self-paced modules packaged for the school’s learning platform, and textbooks in both languages. I also built the tooling that generates and checks it all, so every legal passage matches the Florida statute it cites and each update ships the same way.',
     tags: ['Instructional design', 'SCORM', 'English and Spanish'],
-    preview: { image: '/assets/dvpsta-home.jpg', alt: 'The DVPSTA homepage, offering Florida security training in English and Spanish', url: 'https://dvpsta.com' },
+    preview: { image: '/assets/dvpsta-home.jpg', width: 1280, height: 800, alt: 'The DVPSTA homepage, offering Florida security training in English and Spanish', url: 'https://dvpsta.com' },
     links: [{ label: 'Visit dvpsta.com', url: 'https://dvpsta.com' }],
   },
   {
@@ -94,15 +94,8 @@ const renderPreview = (project) => {
   const { preview } = project;
   if (!preview) return '';
 
-  if (preview.site) {
-    return `<figure class="project-media">
-      <iframe src="${escapeHtml(preview.site)}" title="${escapeHtml(project.name)} live preview" loading="lazy" scrolling="no" tabindex="-1" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-scripts allow-same-origin"></iframe>
-      <a class="project-media-link" href="${escapeHtml(preview.site)}" target="_blank" rel="noreferrer" aria-label="Open the ${escapeHtml(project.name)} live site"><span>Live site <span aria-hidden="true">↗</span></span></a>
-    </figure>`;
-  }
-
   return `<figure class="project-media">
-    <img src="${escapeHtml(preview.image)}" alt="${escapeHtml(preview.alt)}" width="1280" height="800" loading="lazy" decoding="async" />
+    <img src="${escapeHtml(preview.image)}" alt="${escapeHtml(preview.alt)}" width="${preview.width}" height="${preview.height}" loading="lazy" decoding="async" />
     <a class="project-media-link" href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer" aria-label="Visit ${escapeHtml(project.name)}"><span>Visit site <span aria-hidden="true">↗</span></span></a>
   </figure>`;
 };
